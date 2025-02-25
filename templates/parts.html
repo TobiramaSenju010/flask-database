@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Computer Parts Inventory{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4 mb-4 text-center">Computer Parts Inventory</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a href="{{ url_for('add_part') }}" class="btn btn-primary">Add New Part</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Manufacturer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for part in parts %}
+                <tr>
+                    <td>{{ part.id }}</td>
+                    <td>{{ part.name }}</td>
+                    <td>{{ part.category }}</td>
+                    <td>${{ part.price }}</td>
+                    <td>{{ part.manufacturer.name }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No parts available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

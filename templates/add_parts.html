@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Computer Part{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">Add a New Computer Part</h2>
+    <div class="card shadow-sm p-4">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Computer Part Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Computer Parts Category</label>
+                <input type="text" class="form-control" id="category" name="category" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price ($)</label>
+                <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+            </div>
+            <div class="mb-3">
+                <label for="manufacturer_name" class="form-label">Manufacturer Name</label>
+                <input type="text" class="form-control" id="manufacturer_name" name="manufacturer_name" required>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary me-2">Cancel</a>
+                <button type="submit" class="btn btn-primary">Add Part</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
